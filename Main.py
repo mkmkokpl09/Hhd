@@ -13,9 +13,9 @@ import random
 # CONFIG #
 class Config:
     # ===== BOT SETTINGS =====
-    TOKEN = ""  # Your bot token from Discord Developer Portal
+    TOKEN = "MTQ3Mzg0ODM5ODk1OTM0OTgzMQ.Gpbhmj.u2ULNQdiEAQrq-YIkQeLuYh7hyTp0p3Hb_bcDY"  # Your bot token from Discord Developer Portal
     PREFIX = "!"  # The prefix to use before commands (e.g. !nuke), you can also delete the prefix if you don't want one
-    WHITELIST = []  # List of user IDs who can use the bot commands
+    WHITELIST = [vinhquang1420]  # List of user IDs who can use the bot commands
 
     # ===== MESSAGE SETTINGS =====
     SPAM_MESSAGE = "@everyone"  # The message that will be spammed in channels
@@ -687,3 +687,85 @@ async def help(ctx):
         color=discord.Color.purple(),
         timestamp=datetime.now()
     )
+    
+categories = {
+        "🔨 Moderation": [
+            "`banall`",
+            "`unbanall`",
+            "`kickall`",
+            "`timeoutall`",
+            "`untimeoutall`",
+            "`rnickall`",
+        ],
+        "📁 Channels": [
+            "`ccategory`",
+            "`cchannels`",
+            "`chaoschannels`",
+            "`chaoschannelperms`",
+            "`dcategory`",
+            "`dchannels`",
+            "`rchannels`",
+            "`cthread`",
+            "`cvoice`",
+            "`slowmodeall`",
+            "`lockdown`",
+            "`unlockall`",
+            "`moveall`",
+            "`disconnectall`",
+            "`rtopics`",
+        ],
+        "🎭 Roles": [
+            "`adminall`",
+            "`croles`",
+            "`chaosroles`",
+            "`chaosroleperms`",
+            "`droles`",
+            "`rroles`",
+            "`demoteall`",
+        ],
+        "🔗 Invites / Webhooks": [
+            "`cinvites`",
+            "`dinvites`",
+            "`cwebhooks`",
+            "`dwebhooks`",
+            "`mwebhooks`",
+            "`rwebhooks`",
+        ],
+        "🖼️ Server": [
+            "`rserver`",
+            "`rservericon`",
+            "`rpins`",
+            "`cnsfw`",
+            "`nsfwall`",
+            "`demojis`",
+            "`dstickers`",
+        ],
+        "💬 Messages": [
+            "`purge`",
+            "`mpurge`",
+            "`mspam`",
+            "`spam`",
+            "`dmall`",
+        ],
+        "💥 Destructive": [
+            "`nuke`",
+        ],
+        "🧩 Bot": [
+            "`kill`",
+            "`whitelist`",
+        ],
+        "\u200b": [
+            "-# Thanks to [Vexi](<https://discord.com/users/1421939463164133590>), this product is brought to you for free! 🎀"
+        ]
+    }
+
+    for category, commands in categories.items():
+        embed.add_field(
+            name=category,
+            value="\n".join(commands),
+            inline=False
+        )
+
+    await ctx.send(embed=embed)
+
+bot.run(config.TOKEN)
